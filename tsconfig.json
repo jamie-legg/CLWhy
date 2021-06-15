@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "lib": ["es6", "ES2015", "dom"],
+        "outDir": "lib",
+        "rootDir": "src",
+        "types": ["node", "fs-extra"],
+        "experimentalDecorators": true,
+        "strict": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "importHelpers": true,
+        "downlevelIteration": true
+    },
+    "exclude": ["node_modules","lib","templates"]
+}
