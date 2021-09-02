@@ -5,7 +5,7 @@
         "lib": ["es6", "ES2015", "dom"],
         "outDir": "lib",
         "rootDir": "src",
-        "types": ["node", "fs-extra"],
+        "types": ["node"],
         "experimentalDecorators": true,
         "strict": true,
         "esModuleInterop": true,

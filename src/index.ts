@@ -12,26 +12,36 @@ const checkTag = (check:string):string | null => {
 const start = async () => {
     const options = await yargs(process.argv.slice(2)).argv;
     const copy = !!options.c
+    const input = !!options.i
 
-    if(!copy) {
-        showSparkles();
-        showHeader();
-        showSparkles();
+    if(input) {
+        console.log("input mode, enter URL")
+        const url = (input ? options.i : options._[0]) as string;
+        console.log(
+        yargs
+        .command('get', 'make a get HTTP request', {
+            url: {
+            alias: 'u',
+            default: 'http://yargs.js.org/'
+            }
+        })
+        .help()
+        .argv);
     }
 
-    const specimen = (copy ? options.c : options._[0]) as string;
-    const shortcut = checkTag(specimen)
-    const output =  [...specimen.toLowerCase()].map(i=> {
-        const hash = hashmap.filter(([l, h]) => l === i)
-        return hash[0][1]
-    }).join("")
-
-    const final = shortcut? shortcut : output
-
-    console.log(final);
-    if(copy) clipboardy.writeSync(final);
-    
-    copy? showFinish() : showTips();
+    if(copy) {
+        showSparkles();
+        const specimen = (copy ? options.c : options._[0]) as string;
+        const shortcut = checkTag(specimen)
+        const output =  [...specimen.toLowerCase()].map(i=> {
+            const hash = hashmap.filter(([l, h]) => l === i)
+            return hash[0][1]
+        }).join("")
+        const final = shortcut? shortcut : output
+        console.log(final);
+        clipboardy.writeSync(final);
+        showFinish()
+    }
     
 }
 

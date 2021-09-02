@@ -4,7 +4,7 @@
   "description": "",
   "main": "./lib/index.js",
   "bin": {
-    "ruin": "./bin/ruin.js"
+    "int": "./bin/int.js"
   },
   "scripts": {
     "start": "npm run build && npm run global",
